@@ -1,4 +1,4 @@
-<!-- views/applications/index.ejs -->
+<!-- applications/index.ejs -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,8 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Apps</title>
 </head>
-<body>
+  <body>
     <%- include('../partials/_navbar.ejs') %>
-  <h1>Your Apps</h1>
-</body>
+    <h1>Your Apps</h1>
+    <a href="/users/<%=user._id%>/applications/new">Add an App</a>
+    <!-- Add the following: -->
+    <ul>
+      <% applications.forEach((application)=>{ %>
+        <li><%= application.title %> at <%= application.company %></li>
+      <% }) %>
+    </ul>
+  </body>
 </html>
+
